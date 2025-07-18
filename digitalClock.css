@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Chakra Petch", sans-serif;
+}
+
+html,
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom right, #e8eaf6, #ede7f6, #fff3e0);
+  overflow: hidden;
+  gap: 40px;
+}
+
+/* Main Clock and Date Container */
+.clock,
+.date {
+  width: 900px;
+  height: 280px;
+  border-radius: 30px;
+  background: rgba(245, 240, 255, 0.15);
+  border: 1px solid rgba(150, 120, 255, 0.25);
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 0 30px rgba(170, 140, 255, 0.15),
+    0 0 60px rgba(160, 125, 255, 0.1);
+  position: relative;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  animation: floatUpDown 5s ease-in-out infinite alternate;
+}
+
+.clock:hover,
+.date:hover {
+  transform: scale(1.02);
+}
+
+/* Inner Display Style */
+.display,
+.layout {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+  height: 160px;
+  background: rgba(250, 250, 255, 0.85);
+  border-radius: 25px;
+  box-shadow: inset 0 0 12px rgba(180, 150, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Clock / Date Text */
+.clock .display #time,
+.date .layout #period {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  background: linear-gradient(
+    135deg,
+    #c3aed6,
+    #a393eb,
+    #99bbf8,
+    #ffeaa7,
+    #ffd6a5
+  );
+  background-size: 250% 250%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 6s ease infinite;
+  text-shadow: 0 0 15px rgba(140, 120, 255, 0.2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Floating Card Effect */
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Shimmering Text */
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
