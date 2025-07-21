@@ -73,8 +73,9 @@ body {
     #ffd6a5
   );
   background-size: 250% 250%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
   animation: shimmer 6s ease infinite;
   text-shadow: 0 0 15px rgba(140, 120, 255, 0.2);
   white-space: nowrap;
